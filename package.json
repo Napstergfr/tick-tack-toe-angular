@@ -1,6 +1,8 @@
 {
   "name": "tick-tack-toe",
   "version": "0.0.0",
+  "author": "Golam Fale Rabbi",
+  "details": "Contact: +8801739407699, Email: gfr007@outlook.com",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,13 +14,18 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.1.6",
+    "@angular/cdk": "^10.2.7",
     "@angular/common": "~10.1.6",
     "@angular/compiler": "~10.1.6",
     "@angular/core": "~10.1.6",
     "@angular/forms": "~10.1.6",
+    "@angular/material": "^10.2.7",
     "@angular/platform-browser": "~10.1.6",
     "@angular/platform-browser-dynamic": "~10.1.6",
     "@angular/router": "~10.1.6",
+    "autoprefixer": "^10.3.7",
+    "bootstrap": "^5.1.2",
+    "postcss": "^8.3.9",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
@@ -27,9 +34,9 @@
     "@angular-devkit/build-angular": "~0.1001.7",
     "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.1.6",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
