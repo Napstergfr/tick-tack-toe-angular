@@ -6,24 +6,24 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./game-board.component.scss']
 })
 export class GameBoardComponent implements OnInit {
-  tiles = Array(9).fill(null);
-  player = 'X';
-  winnersName = null;
+  tiles = Array(9).fill(null); // tiles array to calculate move and return winner
+  player = 'X'; // Initial player name
+  winnersName = null; // Initial winner name
   constructor() {
   }
 
   ngOnInit(): void {
     if (localStorage.getItem('history')) {
       this.tiles = JSON.parse(localStorage.getItem('history'));
-    }
+    } // check if any preserved history to resume the game when the browser refreshes
     if (localStorage.getItem('winner')) {
       this.winnersName = localStorage.getItem('winner');
-    }
+    } // check if any preserved history to resume the game when the browser refreshes
   }
 
   get gameStatus(): string {
     return this.winnersName ? `Congrats 🌹! ${this.winnersName === 'X'? '👵 Player Two' : '👴 Player One'} is winner! 🎉 🎈 🎊 🎇` : this.tiles.includes(null) ? `${this.player === 'X' ? '👴 Player One' : '👵 Player Two'}'s turn 👺` : `👵=👴 It's a draw! 😵`;
-  }
+  } // this function returns the actions/status of the game
 
   makeMove(event, position: number): void {
     if (!this.winnersName && !this.tiles[position]) {
@@ -35,7 +35,7 @@ export class GameBoardComponent implements OnInit {
       }
     }
     localStorage.setItem('history', JSON.stringify(this.tiles));
-  }
+  } // this function track the users move and calculate
 
   winner(): boolean {
     const winSequences = [
@@ -47,22 +47,21 @@ export class GameBoardComponent implements OnInit {
       [2, 5, 8],
       [0, 4, 8],
       [2, 4, 6],
-    ];
+    ]; // winner sequence to compare with
     for (const ws of winSequences) {
       if (this.tiles[ws[0]]
         && this.tiles[ws[0]] === this.tiles[ws[1]]
         && this.tiles[ws[1]] === this.tiles[ws[2]]) {
-        console.log(this.tiles);
         return true;
       }
     }
     return false;
-  }
+  } // this function returns the winner of the game
 
   restartGame(): void {
     this.tiles = Array(9).fill(null);
     this.player = 'X';
     this.winnersName = null;
-    localStorage.clear();
-  }
+    localStorage.clear(); // clearing localstorage
+  } // this function resets the game
 }
